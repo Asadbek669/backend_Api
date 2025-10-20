@@ -20,13 +20,15 @@ app = FastAPI(title="Uy Ijara API", description="Uy-joy ijarasi uchun API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://asadbek669.github.io",  # GitHub Pages domain
-        "http://localhost:3000",  # Local development
+        "https://asadbek669.github.io",  # To‘g‘ri
+        "https://asadbek669.github.io/uy-ijara-xaritasi",  # Bu ham kerak
+        "http://localhost:3000",  # Local test uchun
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Ma'lumotlar bazasi ulanishi
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -323,4 +325,5 @@ async def debug_photos(listing_id: int):
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
